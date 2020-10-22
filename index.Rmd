@@ -1,3 +1,4 @@
+
 ---
 title: "My Final Project"
 author: Hadarou Sare2020
@@ -104,4 +105,4 @@ Clear summary adequately describing the results and putting them in context. Dis
 
 # References
 
-All sources are cited in a consistent manner
+All sources are cited (in a consistent manner)
