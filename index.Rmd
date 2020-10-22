@@ -1,6 +1,6 @@
 ---
 title: "My Final Project"
-author: Hadarou Sare
+author: Hadarou Sare2020
 subtitle: Subtitle here
 ---
 
