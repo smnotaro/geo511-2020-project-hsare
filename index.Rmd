@@ -1,10 +1,12 @@
 ---
-title: "My Final Project Template 1"
+title: "My Final Project"
 author: Hadarou Sare
 subtitle: Subtitle here if desired
 ---
 
 # Introduction
+
+I will start here.
 
 [~ 200 words]
 
