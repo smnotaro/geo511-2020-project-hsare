@@ -1,5 +1,5 @@
 ---
-title: "My Final Project Template Example1"
+title: "My Final Project Template 1"
 author: Hadarou Sare
 subtitle: Subtitle here if desired
 ---
