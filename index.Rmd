@@ -1,5 +1,5 @@
 ---
-title: "My Final Project Template"
+title: "My Final Project Template Example"
 author: Your name here
 subtitle: Subtitle here if desired
 ---
