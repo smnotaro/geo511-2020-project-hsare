@@ -1,7 +1,7 @@
 ---
 title: "My Final Project"
 author: Hadarou Sare
-subtitle: Subtitle here if desired
+subtitle: Subtitle here if needed
 ---
 
 # Introduction
