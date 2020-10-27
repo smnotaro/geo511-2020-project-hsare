@@ -1,5 +1,5 @@
 output_dir: 'docs'
-output:
+output: 
   html_document:
     theme: simplex  # choose your theme here: https://bootswatch.com/ 
     highlight: textmate

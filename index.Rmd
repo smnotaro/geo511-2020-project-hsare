@@ -1,6 +1,6 @@
 
 ---
-title: "My Final Project"
+title: "My Final Project Template"
 author: Hadarou Sare2020
 subtitle: Subtitle here
 ---
