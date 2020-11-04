@@ -2,7 +2,7 @@
 ---
 title: "My Final Project Title here"
 author: Hadarou Sare
-subtitle: Subtitle here 
+subtitle: Subtitle here if any 
 ---
 
 # Introduction
