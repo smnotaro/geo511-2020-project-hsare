@@ -1,17 +1,18 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>About This Website</title>
+<title>My Website Template</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -235,7 +236,6 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -344,7 +344,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Spatial Data Science Final Project</a>
+      <a class="navbar-brand" href="index.html">Spatial Data Science Final Project here</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -363,7 +363,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">About This Website</h1>
+<h1 class="title toc-ignore">My Website Template</h1>
 
 </div>
 
@@ -372,7 +372,7 @@ div.tocify {
 
 <!-- give the footer some space -->
 <br/>
-<br/>
+<br/> 
 
 <footer id="site-footer">
   <div id="footer1">
@@ -433,7 +433,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
