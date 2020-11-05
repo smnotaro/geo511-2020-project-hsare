@@ -1,6 +1,6 @@
 
 ---
-title: "Selection of the future mining sites"
+title: "Selection of the future mining and landing sites"
 author: Hadarou Sare
 subtitle: Subtitle here 
 ---
