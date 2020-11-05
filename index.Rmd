@@ -1,6 +1,6 @@
 
 ---
-title: "My Final Project Title here"
+title: "Selection of the future mining sites"
 author: Hadarou Sare
 subtitle: Subtitle here 
 ---
