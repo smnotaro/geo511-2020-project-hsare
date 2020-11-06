@@ -1,108 +1,176 @@
 
 ---
-title: "Selection of the future mining and landing sites"
+title: "Using R to Search for future mining and landing sites on Mars"
 author: Hadarou Sare
-subtitle: Subtitle here 
+
 ---
 
 # Introduction
 
-I will start here with the writing part.
-Thank you!
+For more than decades,NASA and its partners has been developing technologies to extract precious metals and water from the Moon, Mars and other bodies in the solar system. The extraction of water is very important because it can reduce considerably the cost of launch since the water can be split into Hydrogen and Oxygen and use as propellant in space. That idea has been clearly supported recently by the US goverment and European partners with the Artemis and other projects. However, even though scientists and engineers have already developed the right technologies able to extract water and other resources from space, it is still unclear where they should land their technologies(Rover and others) and start mining the resources they are looking for. 
 
-[~ 200 words]
-
-Clearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way.
+The goal of this project is to use the package "threejs" to visualize the future best mining sites on Mars(water/water ice/volatiles materials mining sites). The final product is a map showing locations of best landing sites and mining sites.
+However, before getting into that step, I used some geological and engineering criteria to determine and selected the best landing/mining sites for the future rovers. The criteria used to select the landing/mining sites are: where are located minerals indicating the presence of water/water ice?, where do we have permanent sunlight to use as source of energy for processing the water and charging the rovers? Is the topography of the site suitable for the mobility of the rover to and from the processing center?... 
+For this project, the most important criteria I  considered is the geological criteria for question of time. I choosed and explored 9 sites as training sites and then selected among those sites the best ones as future landing/mining sites.
 
 # Materials and methods
 
-[~ 200 words]
+I choosed 9 sites as training sites.
+For each training site, I downloaded and used Raster data of  Mars. Those data are Visible and infrared data in the “.TIFF” format and are combination of different band (7 bands according to Mars Odysee website) and each band is showing data in a specific wavelength. After downloading those data, I  resized some of them so that all images will have the same size and I  then added them together to create a metadata containing all information from each site. I finally used the band ratio combination to determine the presence and abundance of water/water ice, ice or volatiles material in each site I choose as training site and from there I was able to see which sites could be selected as the best future landing/mining sites.
 
-Narrative: Clear narrative description of the data sources and methods. Includes data from at least two sources that were integrated / merged in R.
+# Data and Results
+## PART1: Selection of thhe landing/mining sites
 
-Code: The code associated with the project is well organized and easy to follow. Demonstrates mastery of R graphics and functions.
+The goal here is to detect the site where we could have more water/ water ice/ volatiles materials. I applied some corrections to satelitte images I downloaded. For question of time I will only show what I did in only one site here but all sites I selected to be future landing/mining site are shown later in the second part of this project.
 
-Data: The underlying data are publicly accessible via the web and downloaded/accessed within the Rmd script. If you want to use your own data, you must make it available on a website (e.g. Figshare) so that others are able to re-run your code.
-
-You can do bullets like this:
-
-* The first most important thing
-* The second most important thing
-* The third most important thing
-
-You can do numbers like this:
-
-1. The first most important thing
-2. The second most important thing
-3. The third most important thing
-
-See [http://rmarkdown.rstudio.com/](http://rmarkdown.rstudio.com/) for all the amazing things you can do.
-
-
-Here's my first code chunk.
-```{r}
-1+2
-```
-
-Load any required packages in a code chunk (you may need to install some packages):
+I loaded required packages
 
 ```{r, message=F, warning=F}
+library(raster)
 library(tidyverse)
-library(leaflet)
-library(kableExtra)
-knitr::opts_chunk$set(cache=TRUE)  # cache the results for quick compiling
+library(sf)
+library(rpart)
+library(rpart.plot)
+library(rasterVis)
+library(mapedit)
+library(mapview)
+library(caret)
+library(forcats)
+library(sp)
+library(raster)
 ```
 
-## Download and clean all required data
-```{r}
-n=20
-data=data.frame(x=runif(n,-180,180),
-                y=runif(n,-60,60),
-                size = runif(n, 5, 20),
-                category = factor(
-                  sample(letters[1:5], n, replace = TRUE)
-                  ),
-                value = rnorm(n))
-```
-
-```{r, results='asis'}
-data %>% 
-  slice(1:10) %>% #show only 1:n rows
-  kable(digits=2,align="c")%>% #make table and round to two digits
-  kable_styling(bootstrap_options = 
-                  c("striped", "hover", "condensed", "responsive")) #apply other formatting
-```
-
-Add any additional processing steps here.
-
-# Results
-
-[~200 words]
-
-Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.
-
-Show tables, plots, etc. and describe them.
-
-```{r, fig.width=6, fig.height=3, fig.cap="Map of completely random data"}
-m <- leaflet(data) %>% 
-  addTiles() %>% 
-  addCircleMarkers(~x, ~y, radius = ~size,color = ~as.factor(category)) %>% 
-  addPopups(~x[2], ~y[2], "Random popup")
-m  # a map with the default OSM tile layer
-```
-
+I prepare the data by reading in the different bands that comprise the satelitte imagery. Each band refers to different spectrum
 
 ```{r}
-data %>% 
-  ggplot(aes(x=x,y=y,col=category))+
-  geom_point()
+band1 <- raster("B02.tif")
+band2 <- raster("B03.tif")
+band3 <- raster("B04.tif")
+band4 <- raster("B05.tif")
+band5 <- raster("B06.tif")
+band6 <- raster("B07.tif")
+band7 <- raster("B08.tif")
 ```
+
+Show result of band1
+
+```{r}
+print(band1)
+```
+
+Now, I check the size of image before combining them together using STACK to make sure the sizes match. The code below shows that band1, band2, band3, and band7 are 10x10. Band4, band5, and band6 are 20x20.
+
+```{r}
+res(band1) # Size find is 10x10
+res(band2) # Size find is 10x10
+res(band3) # Size find is 10x10
+res(band4) # Size find is 20x20
+res(band5) # Size find is 20x20
+res(band6) # Size find is 20x20
+res(band7) # Size find is 10x10
+```
+
+I resize now some image to make sure all image have the same size before adding them together.
+From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20.
+
+```{r}
+band1 <- aggregate(band1, fact = 2) # multiply the size of band1 by 2 to have 20x20
+band2 <- aggregate(band1, fact = 2) # multiply the size of band2 by 2 to have 20x20
+band3 <- aggregate(band1, fact = 2) # multiply the size of band3 by 2 to have 20x20
+band7 <- aggregate(band1, fact = 2) # multiply the size of band7 by 2 to have 20x20
+```
+
+Now I can add all bands together to have a metadata containing all informations I am looking for and which will be helpful to continue the project.
+
+```{r}
+image <- stack(band1, band2, band3, band7)
+```
+
+Let's explore the images. Here, we are able to see the number of band used, the coordinate system the imagery is projected in, the resolution (or grid cell size) of the raster, and the resolution of the images
+
+```{r}
+nlayers(image) #This give the number of bands use
+crs(image) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.
+res #resolution of the images
+```
+
+##Results1
+Now that we know a little more about the imagery we are using, let plot it. Since image is a multi-band raster,
+we use the plotRGB function from the raster package, which allows us to specify what bands should be visualized.
+
+###TRUE COLOR PLOTS. It uses the red band (4) for red, the green band (3) for green, and the blue band (2) for blue.
+```{r}
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE, 
+        stretch = "lin", main = "True Color Composite")
+box(col="white")
+```
+###FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.
+```{r}
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
+box(col="white")
+```
+###Indices of WATER
+
+We can use Modified Normalized Difference Water Index [MNDWI=(Green-MIR)/ (Green+MIR)] to separate water from land. This idea is from Reference=https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2
+The Author of the reference is Saygin Abdikan and is currently working at the Department of Geomatics Engineering, Hacettepe University. The Author researchGate is https://www.researchgate.net/profile/Saygin_Abdikan
+
+The formula is as below:
+[MNDWI=(Green-MIR)/ (Green+MIR)]
+MNDWI <- (image[[2]] - image[[3]])/(image[[2]] + image[[3]]).
+
+To plot the results with ggplot, we convert the raster into a data frame and use geom_tile.
+The plot generated by the codes below show where are located water/ water ice/ volatiles materials the most and we have then know where to land the rovers and start the mining process.
+```{r}
+as(MNDWI, "SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>%
+  ggplot(data = .) +
+  geom_tile(aes(x = x, y = y, fill = layer)) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(title = "Water or Water ice or Volatiles materials", 
+       x = " ", 
+       y = " ") +
+  scale_fill_gradient(high = "#CEE50E", 
+                      low = "#087F28",
+                      name = "Water or Water ice or Volatiles materials")
+```
+
+## PART1: Visualization of landing/mining sites on map
+
+I loaded required packages
+
+```{r, message=F, warning=F}
+library(threejs)
+```
+
+##Results2
+I prepared and loaded the data.
+
+```{r}
+
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444", 
+        lightcolor="#555555", 
+        lat=the_martian$x, 
+        long=the_martian$y)
+```
+
+
 
 # Conclusions
 
+Using R , we are able to resize the images, correct the images, and process the images to detect the best future landing and mining sites. This project can be extended to other area and could help scientists and researcher in selecting not only landing and mining sites but also detecting and forcasting temperature in space, maping minerals in space, detecting geological features in space.
 [~200 words]
 
-Clear summary adequately describing the results and putting them in context. Discussion of further questions and ways to continue investigation.
 
 # References
 
