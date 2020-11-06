@@ -1,0 +1,458 @@
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+# Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_MGS_colorhillshade_mola_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+# Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_MGS_colorhillshade_mola_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+# Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_MGS_colorhillshade_mola_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+#Case Study4
+options(knitr.duplicate.label = 'allow')
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("nycflights13")
+library(nycflights13)
+library(nycflights13)
+flights%>%
+select(distance,dest)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+left_join(airports, by = c("dest" = "faa"))%>%
+select(name)
+#Case Study4
+options(knitr.duplicate.label = 'allow')
+library(tidyverse)
+library(nycflights13)
+flights%>%
+select(distance,dest)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+left_join(airports, by = c("dest" = "faa"))%>%
+select(name)
+Select(airports,
+dest = faa,
+destName = name)%>%
+right_join(flights)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+select(destName)
+flights%>%
+select(distance,dest)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+left_join(airports, by = c("dest" = "faa"))%>%
+select(name)
+select(airports,
+dest = faa,
+destName = name)%>%
+right_join(flights)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+select(destName)
+airports%>%
+distinct(lon,lat)%>%
+ggplot(aes(lon,lat)) +
+borders("world") +
+geom_point(col = "red") +
+coord_quickmap()
+select(airports,
+dest = faa,
+destName = name)%>%
+right_join(flights)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+select(destName)
+airports%>%
+distinct(lon,lat)%>%
+ggplot(aes(lon,lat)) +
+borders("world") +
+geom_point(col = "red") +
+coord_quickmap()
+install.packages("maps")
+library(MAP)
+airports%>%
+distinct(lon,lat)%>%
+ggplot(aes(lon,lat)) +
+borders("world") +
+geom_point(col = "red") +
+coord_quickmap()
+library(tidyverse)
+library(nycflights13)
+flights%>%
+select(distance,dest)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+left_join(airports, by = c("dest" = "faa"))%>%
+select(name)
+select(airports,
+dest = faa,
+destName = name)%>%
+right_join(flights)%>%
+arrange(desc(distance))%>%
+slice(1)%>%
+select(destName)
+library(MAP)
+airports%>%
+distinct(lon,lat)%>%
+ggplot(aes(lon,lat)) +
+borders("world") +
+geom_point(col = "red") +
+coord_quickmap()
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+# Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_MGS_colorhillshade_mola_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_MGS_colorhillshade_mola_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+source('C:/Users/hadar/Desktop/R_Tasks/Final Project_Good/GOOD_To_Use/mars_Landing Site/mars.R')
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- ("B02.tif")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- ("B02.tif")
+band2 <- ("B03tif")
+band3 <- ("B04.tif")
+band4 <- ("B05.tif")
+band5 <- ("B06.tif")
+band6 <- ("B07.tif")
+band7 <- ("B08.tif")
+res(band8)
+image <- stack(band1, band2, band3, band4, band5, band6, band7,
+)
+image <- stack(band1, band2, band3, band4, band5, band6, band7
+)
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- rasterImage("B02.tif")
+install.packages("raster")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+library(raster)
+install.packages("sp")
+library(sp)
+library(raster)
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+band2 <- raster("B03tif")
+band3 <- raster("B04.tif")
+band4 <- raster("B05.tif")
+band5 <- raster("B06.tif")
+band6 <- raster("B07.tif")
+band7 <- raster("B08.tif")
+band2 <- raster("B03tif")
+res(band8)
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+image <- stack(band1, band2, band3, band5, band6, band7)
+image <- stack(band1, band2, band3, band5, band6, band7)
+res(band8)
+image <- stack(band1, band2, band3, band5, band6, band7)
+band2 <- raster("B03tif")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+band2 <- raster("B03tif")
+band3 <- raster("B04.tif")
+band4 <- raster("B05.tif")
+band5 <- raster("B06.tif")
+band2 <- raster("B03tif")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+band3 <- raster("B04.tif")
+band4 <- raster("B05.tif")
+band5 <- raster("B06.tif")
+band6 <- raster("B07.tif")
+band7 <- raster("B08.tif")
+image <- stack(band1, band2, band4, band5, band6, band7)
+image <- stack(band1, band3, band4, band5, band6, band7)
+image <- stack(band1, band3, band4, band5, band6, band7)
+image <- stack(band3, band4, band5, band6, band7)
+image <- stack(band3, band4)
+band2 <- raster("B03tif")
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+band2 <- raster("B03.tif")
+band3 <- raster("B04.tif")
+band4 <- raster("B05.tif")
+band5 <- raster("B06.tif")
+band6 <- raster("B07.tif")
+band7 <- raster("B08.tif")
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+nlayers(image)
+crs(image)
+res(image)
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE,
+stretch = "lin", main = "True Color Composite")
+box(col="white")
+plot(image, r = 4, g = 3, b = 2, axes = TRUE,
+stretch = "lin", main = "True Color Composite")
+plot(image, r = 4, g = 3, b = 2, axes = TRUE,
+stretch = "lin")
+plot(image)
+print(image)
+print(image)
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+#band8 <- ("mariner-9-mars-lander.jpg")
+#band9 <- raster("./data/band9.tif")
+#band10 <- raster("./data/band10.tif")
+#band11 <- raster("./data/band11.tif")
+print(band1)
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+res(band1)
+#Check size of image before combining them using STACK
+res(band1)
+res(band2) #10X10
+res(band3) #10X10
+res(band4) #10X10
+res(band5) #10X10
+res(band6) #10X10
+res(band7) #10X10
+#LET MAKE THEM THE SAME SIZE
+band1 <- aggregate(band1, fact = 2)
+band2 <- aggregate(band2, fact = 2) # Multiply the size of band2 by 2 to have 20X20
+band3 <- aggregate(band3, fact = 2) # Multiply the size of band3 by 2 to have 20X20
+band7 <- aggregate(band7, fact = 2) # Multiply the size of band7 by 2 to have 20X20
+image <- stack(band1, band2, band3, band4, band5, band6, band7)
+image <- stack(band1, band2, band3, band4, band5, band6, band7
+)
+image <- stack(band1, band2, band3, band7)
+image <- stack(band1, band2, band3, band7, band4)
+#LET MAKE THEM THE SAME SIZE
+band1 <- aggregate(band1, fact = 2) # Multiply the size of band1 by 2 to have 20X20
+band2 <- aggregate(band2, fact = 2) # Multiply the size of band2 by 2 to have 20X20
+band3 <- aggregate(band3, fact = 2) # Multiply the size of band3 by 2 to have
+band7 <- aggregate(band7, fact = 2) # Multiply the size of band7 by 2 to have 20X20
+image <- stack(band1, band2, band3, band7, band4)
+image <- stack(band1, band2, band3, band7)
+nlayers(image)
+crs(image)
+crs(image) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.
+res(image)
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE,
+stretch = "lin", main = "True Color Composite")
+#FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
+box(col="white")
+#Supervised Classification
+# create training points in mapview
+points <- viewRGB(image, r = 4, g = 3, b = 2) %>% editMap()
+#Supervised Classification
+# create training points in mapview
+# create training points in mapview
+points <- viewRGB(image, r = 4, g = 3, b = 2) %>%
+editMap()
+#Supervised Classification
+# create training points in mapview
+# create training points in mapview
+points <- viewRGB(image, r = 4, g = 3, b = 2)
+#Supervised Classification
+# create training points in mapview
+# create training points in mapview
+points <- viewRGB(image, r = 4, g = 3, b = 2)
+#Supervised Classification
+# create training points in mapview
+# create training points in mapview
+points <- viewRGB(image, r = 4, g = 3, b = 2) %>% editMap()
+#Supervised Classification
+# create training points in mapview
+# create training points in mapview
+points <- viewRGB(image, r = 4, g = 3, b = 2) %>% editMap()
+# save as clouds after first iteration
+clouds <- points$finished$geometry %>% st_sf() %>% mutate(class = "clouds", id = 1)
+# save as developed land second time
+developed <- points$finished$geometry %>% st_sf() %>% mutate(class = "developed", id = 2)
+# then save as undeveloped land after third iteration
+undeveloped <- points$finished$geometry %>% st_sf() %>% mutate(class = "undeveloped", id = 3)
+# finally save as water
+water <- points$finished$geometry %>% st_sf() %>% mutate(class = "water", id = 4)
+#Classifying Satellite Imagery in R
+#Loading packages and preparing the data
+library(raster)
+library(tidyverse)
+library(sf)
+library(rpart)
+library(rpart.plot)
+library(rasterVis)
+library(mapedit)
+library(mapview)
+library(caret)
+library(forcats)
+library(sp)
+library(raster)
+#Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
+#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+band1 <- raster("B02.tif")
+band2 <- raster("B03.tif")
+band3 <- raster("B04.tif")
+band4 <- raster("B05.tif")
+band5 <- raster("B06.tif")
+band6 <- raster("B07.tif")
+band7 <- raster("B08.tif")
+#band8 <- ("mariner-9-mars-lander.jpg")
+#band9 <- raster("./data/band9.tif")
+#band10 <- raster("./data/band10.tif")
+#band11 <- raster("./data/band11.tif")
+print(band1)
+#Check size of image before combining them using STACK
+res(band1) #SIZE FID IS 10X10
+res(band2) #10X10
+res(band3) #10X10
+res(band4) # SIZE FIND IS 20X20
+res(band5) #20X20
+res(band6) #20X20
+res(band7) #10X10
+#LET MAKE THEM THE SAME SIZE
+band1 <- aggregate(band1, fact = 2) # Multiply the size of band1 by 2 to have 20X20
+band2 <- aggregate(band2, fact = 2) # Multiply the size of band2 by 2 to have 20X20
+band3 <- aggregate(band3, fact = 2) # Multiply the size of band3 by 2 to have
+band7 <- aggregate(band7, fact = 2) # Multiply the size of band7 by 2 to have 20X20
+image <- stack(band1, band2, band3, band7)
+#Exploring the imagery
+nlayers(image)   # give number of bands
+crs(image) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.
+res #resolution of the images
+#TRUE COLOR PLOTS. It uses the red band (4) for red, the green band (3) for green, and the blue band (2) for blue.
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE,
+stretch = "lin", main = "True Color Composite")
+box(col="white")
+#FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
+box(col="white")
+View(band2)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library(threejs)
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library("shiny")
+runApp(system.file("examples/globe",package="threejs"))
+runApp(system.file("examples/scatterplot",package="threejs"))
+library("shiny")
+runApp(system.file("examples/globe",package="threejs"))
+runApp(system.file("examples/scatterplot",package="threejs"))
+library("shiny")
+runApp(system.file("examples/globe",package="threejs"))
+runApp(system.file("examples/scatterplot",package="threejs"))
+runApp(system.file("examples/scatterplot",package="threejs"))
+library(threejs)
+the_martian <- read.csv("the_martian.csv", comment.char="#")
+# mariner-9-mars.jpg
+#Mars_MGS_colorhillshade_mola_1024.jpg
+# Mars_MGS_colorhillshade_mola_1024.jpg
+# 20151105_mars_lander_map_f840.jpg
+globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
+lightcolor="#555555",
+lat=the_martian$x,
+long=the_martian$y)
+library("shiny")
+runApp(system.file("examples/globe",package="threejs"))
+runApp(system.file("examples/scatterplot",package="threejs"))

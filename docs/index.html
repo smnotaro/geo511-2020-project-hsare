@@ -13,9 +13,9 @@
 <meta name="author" content="Hadarou Sare" />
 
 
-<title>Selection of the future mining and landing sites</title>
+<title>Using R to Search for future mining and landing sites on Mars</title>
 
-<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -27,16 +27,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="site_libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="site_libs/leaflet-binding-2.0.3/leaflet.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -374,8 +364,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Selection of the future mining and landing sites</h1>
-<h3 class="subtitle">Subtitle here</h3>
+<h1 class="title toc-ignore">Using R to Search for future mining and landing sites on Mars</h1>
 <h4 class="author">Hadarou Sare</h4>
 
 </div>
@@ -383,278 +372,77 @@ div.tocify {
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>I will start here with the writing part. Thank you!</p>
-<p>[~ 200 words]</p>
-<p>Clearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way.</p>
+<p>For more than decades,NASA and its partners has been developing technologies to extract precious metals and water from the Moon, Mars and other bodies in the solar system. The extraction of water is very important because it can reduce considerably the cost of launch since the water can be split into Hydrogen and Oxygen and use as propellant in space. That idea has been clearly supported recently by the US goverment and European partners with the Artemis and other projects. However, even though scientists and engineers have already developed the right technologies able to extract water and other resources from space, it is still unclear where they should land their technologies(Rover and others) and start mining the resources they are looking for.</p>
+<p>The goal of this project is to use the package “threejs” to visualize the future best mining sites on Mars(water/water ice/volatiles materials mining sites). The final product is a map showing locations of best landing sites and mining sites. However, before getting into that step, I used some geological and engineering criteria to determine and selected the best landing/mining sites for the future rovers. The criteria used to select the landing/mining sites are: where are located minerals indicating the presence of water/water ice?, where do we have permanent sunlight to use as source of energy for processing the water and charging the rovers? Is the topography of the site suitable for the mobility of the rover to and from the processing center?… For this project, the most important criteria I considered is the geological criteria for question of time. I choosed and explored 9 sites as training sites and then selected among those sites the best ones as future landing/mining sites.</p>
 </div>
 <div id="materials-and-methods" class="section level1">
 <h1>Materials and methods</h1>
-<p>[~ 200 words]</p>
-<p>Narrative: Clear narrative description of the data sources and methods. Includes data from at least two sources that were integrated / merged in R.</p>
-<p>Code: The code associated with the project is well organized and easy to follow. Demonstrates mastery of R graphics and functions.</p>
-<p>Data: The underlying data are publicly accessible via the web and downloaded/accessed within the Rmd script. If you want to use your own data, you must make it available on a website (e.g. Figshare) so that others are able to re-run your code.</p>
-<p>You can do bullets like this:</p>
-<ul>
-<li>The first most important thing</li>
-<li>The second most important thing</li>
-<li>The third most important thing</li>
-</ul>
-<p>You can do numbers like this:</p>
-<ol style="list-style-type: decimal">
-<li>The first most important thing</li>
-<li>The second most important thing</li>
-<li>The third most important thing</li>
-</ol>
-<p>See <a href="http://rmarkdown.rstudio.com/">http://rmarkdown.rstudio.com/</a> for all the amazing things you can do.</p>
-<p>Here’s my first code chunk.</p>
-<pre class="r"><code>1+2</code></pre>
-<pre><code>## [1] 3</code></pre>
-<p>Load any required packages in a code chunk (you may need to install some packages):</p>
-<pre class="r"><code>library(tidyverse)
-library(leaflet)
-library(kableExtra)
-knitr::opts_chunk$set(cache=TRUE)  # cache the results for quick compiling</code></pre>
-<div id="download-and-clean-all-required-data" class="section level2">
-<h2>Download and clean all required data</h2>
-<pre class="r"><code>n=20
-data=data.frame(x=runif(n,-180,180),
-                y=runif(n,-60,60),
-                size = runif(n, 5, 20),
-                category = factor(
-                  sample(letters[1:5], n, replace = TRUE)
-                  ),
-                value = rnorm(n))</code></pre>
-<pre class="r"><code>data %&gt;% 
-  slice(1:10) %&gt;% #show only 1:n rows
-  kable(digits=2,align=&quot;c&quot;)%&gt;% #make table and round to two digits
-  kable_styling(bootstrap_options = 
-                  c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, &quot;responsive&quot;)) #apply other formatting</code></pre>
-<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:center;">
-x
-</th>
-<th style="text-align:center;">
-y
-</th>
-<th style="text-align:center;">
-size
-</th>
-<th style="text-align:center;">
-category
-</th>
-<th style="text-align:center;">
-value
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-138.92
-</td>
-<td style="text-align:center;">
-30.94
-</td>
-<td style="text-align:center;">
-7.05
-</td>
-<td style="text-align:center;">
-d
-</td>
-<td style="text-align:center;">
-1.73
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-142.45
-</td>
-<td style="text-align:center;">
--21.68
-</td>
-<td style="text-align:center;">
-10.81
-</td>
-<td style="text-align:center;">
-a
-</td>
-<td style="text-align:center;">
--0.17
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
--59.27
-</td>
-<td style="text-align:center;">
-57.02
-</td>
-<td style="text-align:center;">
-17.74
-</td>
-<td style="text-align:center;">
-d
-</td>
-<td style="text-align:center;">
-1.25
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
--141.09
-</td>
-<td style="text-align:center;">
-56.18
-</td>
-<td style="text-align:center;">
-14.54
-</td>
-<td style="text-align:center;">
-b
-</td>
-<td style="text-align:center;">
--0.33
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-101.53
-</td>
-<td style="text-align:center;">
-18.89
-</td>
-<td style="text-align:center;">
-11.74
-</td>
-<td style="text-align:center;">
-d
-</td>
-<td style="text-align:center;">
--0.08
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
--135.05
-</td>
-<td style="text-align:center;">
-41.23
-</td>
-<td style="text-align:center;">
-17.33
-</td>
-<td style="text-align:center;">
-a
-</td>
-<td style="text-align:center;">
--0.56
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-62.61
-</td>
-<td style="text-align:center;">
-40.15
-</td>
-<td style="text-align:center;">
-19.41
-</td>
-<td style="text-align:center;">
-a
-</td>
-<td style="text-align:center;">
--0.56
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
--35.06
-</td>
-<td style="text-align:center;">
--45.78
-</td>
-<td style="text-align:center;">
-7.29
-</td>
-<td style="text-align:center;">
-b
-</td>
-<td style="text-align:center;">
-0.21
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-132.86
-</td>
-<td style="text-align:center;">
-4.74
-</td>
-<td style="text-align:center;">
-17.07
-</td>
-<td style="text-align:center;">
-e
-</td>
-<td style="text-align:center;">
-0.56
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
--123.59
-</td>
-<td style="text-align:center;">
-41.08
-</td>
-<td style="text-align:center;">
-14.86
-</td>
-<td style="text-align:center;">
-d
-</td>
-<td style="text-align:center;">
--0.28
-</td>
-</tr>
-</tbody>
-</table>
-<p>Add any additional processing steps here.</p>
+<p>I choosed 9 sites as training sites. For each training site, I downloaded and used Raster data of Mars. Those data are Visible and infrared data in the “.TIFF” format and are combination of different band (7 bands according to Mars Odysee website) and each band is showing data in a specific wavelength. After downloading those data, I resized some of them so that all images will have the same size and I then added them together to create a metadata containing all information from each site. I finally used the band ratio combination to determine the presence and abundance of water/water ice, ice or volatiles material in each site I choose as training site and from there I was able to see which sites could be selected as the best future landing/mining sites.</p>
 </div>
+<div id="data-and-results" class="section level1">
+<h1>Data and Results</h1>
+<div id="part1-selection-of-thhe-landingmining-sites" class="section level2">
+<h2>PART1: Selection of thhe landing/mining sites</h2>
+<p>The goal here is to detect the site where we could have more water/ water ice/ volatiles materials. I applied some corrections to satelitte images I downloaded. For question of time I will only show what I did in only one site here but all sites I selected to be future landing/mining site are shown later in the second part of this project.</p>
+<p>I loaded required packages</p>
+<pre class="r"><code>library(raster)
+library(tidyverse)
+library(sf)
+library(rpart)
+library(rpart.plot)
+library(rasterVis)
+library(mapedit)
+library(mapview)
+library(caret)
+library(forcats)
+library(sp)
+library(raster)</code></pre>
+<p>I prepare the data by reading in the different bands that comprise the satelitte imagery. Each band refers to different spectrum.</p>
+<pre class="r"><code>band1 &lt;- (&quot;B02.tif&quot;)
+band2 &lt;- (&quot;B03.tif&quot;)
+band3 &lt;- (&quot;B04.tif&quot;)
+band4 &lt;- (&quot;B05.tif&quot;)
+band5 &lt;- (&quot;B06.tif&quot;)
+band6 &lt;- (&quot;B07.tif&quot;)
+band7 &lt;- (&quot;B08.tif&quot;)</code></pre>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r, message=F, warning=F} #library(raster) #band1 &lt;- raster("B02.tif") #band2 &lt;- raster("B03.tif") #band3 &lt;- raster("B04.tif") #band4 &lt;- raster("B05.tif") #band5 &lt;- raster("B06.tif") #band6 &lt;- raster("B07.tif") #band7 &lt;- raster("B08.tif") #</code></p>
+<p>Show result of band1</p>
+<pre class="r"><code>print(band1)</code></pre>
+<pre><code>## [1] &quot;B02.tif&quot;</code></pre>
+<p>Now, I check the size of image before combining them together using STACK to make sure the sizes match. The code below shows that band1, band2, band3, and band7 are 10x10. Band4, band5, and band6 are 20x20.</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #res(band1) # Size find is 10x10 #res(band2) # Size find is 10x10 #res(band3) # Size find is 10x10 #res(band4) # Size find is 20x20 #res(band5) # Size find is 20x20 #res(band6) # Size find is 20x20 #res(band7) # Size find is 10x10 #</code></p>
+<p>I resize now some image to make sure all image have the same size before adding them together. From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20.</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #band1 &lt;- aggregate(band1, fact = 2) # multiply the size of band1 by 2 to have 20x20 #band2 &lt;- aggregate(band1, fact = 2) # multiply the size of band2 by 2 to have 20x20 #band3 &lt;- aggregate(band1, fact = 2) # multiply the size of band3 by 2 to have 20x20 #band7 &lt;- aggregate(band1, fact = 2) # multiply the size of band7 by 2 to have 20x20 #</code></p>
+<p>Now I can add all bands together to have a metadata containing all informations I am looking for and which will be helpful to continue the project.</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #image &lt;- stack(band1, band2, band3, band7) #</code></p>
+<p>Let’s explore the images. Here, we are able to see the number of band used, the coordinate system the imagery is projected in, the resolution (or grid cell size) of the raster, and the resolution of the images</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #nlayers(image) #This give the number of bands use #crs(image) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster. #res #resolution of the images #</code></p>
+<p>##Results1 Now that we know a little more about the imagery we are using, let plot it. Since image is a multi-band raster, we use the plotRGB function from the raster package, which allows us to specify what bands should be visualized.</p>
+<p>###TRUE COLOR PLOTS. It uses the red band (4) for red, the green band (3) for green, and the blue band (2) for blue.</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #par(col.axis="white",col.lab="white",tck=0) #plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE,  #        stretch = "lin", main = "True Color Composite") #box(col="white") #</code> ###FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #par(col.axis="white",col.lab="white",tck=0) #plotRGB(image, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite") #box(col="white") #</code> ###Indices of WATER</p>
+<p>We can use Modified Normalized Difference Water Index [MNDWI=(Green-MIR)/ (Green+MIR)] to separate water from land. This idea is from Reference=<a href="https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2" class="uri">https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2</a> The Author of the reference is Saygin Abdikan and is currently working at the Department of Geomatics Engineering, Hacettepe University. The Author researchGate is <a href="https://www.researchgate.net/profile/Saygin_Abdikan" class="uri">https://www.researchgate.net/profile/Saygin_Abdikan</a></p>
+<p>The formula is as below: [MNDWI=(Green-MIR)/ (Green+MIR)] MNDWI &lt;- (image[[2]] - image[[3]])/(image[[2]] + image[[3]]).</p>
+<p>To plot the results with ggplot, we convert the raster into a data frame and use geom_tile. The plot generated by the codes below show where are located water/ water ice/ volatiles materials the most and we have then know where to land the rovers and start the mining process.</p>
+<p>#I decided not to load this data because my codes are not working yet #<code>{r} #as(MNDWI, "SpatialPixelsDataFrame") %&gt;%  #  as.data.frame() %&gt;% #  ggplot(data = .) + #  geom_tile(aes(x = x, y = y, fill = layer)) + #  theme(axis.text = element_blank(), #        axis.ticks = element_blank(), #        panel.background = element_blank(), #        panel.grid.minor = element_blank()) + #  labs(title = "Water or Water ice or Volatiles materials",  #       x = " ",  #       y = " ") + #  scale_fill_gradient(high = "#CEE50E",  #                      low = "#087F28", #                      name = "Water or Water ice or Volatiles materials") #</code></p>
 </div>
-<div id="results" class="section level1">
-<h1>Results</h1>
-<p>[~200 words]</p>
-<p>Tables and figures (maps and other graphics) are carefully planned to convey the results of your analysis. Intense exploration and evidence of many trials and failures. The author looked at the data in many different ways before coming to the final presentation of the data.</p>
-<p>Show tables, plots, etc. and describe them.</p>
-<pre class="r"><code>m &lt;- leaflet(data) %&gt;% 
-  addTiles() %&gt;% 
-  addCircleMarkers(~x, ~y, radius = ~size,color = ~as.factor(category)) %&gt;% 
-  addPopups(~x[2], ~y[2], &quot;Random popup&quot;)
-m  # a map with the default OSM tile layer</code></pre>
-<div class="figure">
-<div id="htmlwidget-a5b582a676baf79280d5" style="width:576px;height:288px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a5b582a676baf79280d5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[30.9428387973458,-21.6806418634951,57.0196917839348,56.1782080214471,18.8856590911746,41.2252581026405,40.1538050640374,-45.7770845387131,4.73821836523712,41.0754819307476,37.1226814202964,31.0654531326145,30.4663777817041,43.8373678084463,31.3373697828501,48.2492032460868,51.0514521505684,28.0246644839644,41.0893945489079,24.0460657887161],[138.920924300328,142.453535478562,-59.2695346847177,-141.092865429819,101.530475914478,-135.04740620032,62.61374800466,-35.0606563221663,132.86267680116,-123.593228906393,-164.157858761027,91.9321089796722,-115.277779307216,173.153216578066,98.5754344426095,72.4596195481718,2.06867633387446,-92.3525320831686,-37.2965430747718,-42.473895130679],[7.04653468797915,10.8118874568027,17.7411266043782,14.5392537338194,11.7410927568562,17.327827475965,19.4131981022656,7.28526822873391,17.0669890823774,14.856829456985,10.6662092986517,14.6942871785723,18.0874628969468,8.91198127763346,14.4442654703744,10.9774244949222,5.53935992065817,13.099834084278,8.13150121597573,7.53396167419851],null,null,{"interactive":true,"className":"","stroke":true,"color":["d","a","d","b","d","a","a","b","e","d","e","c","e","a","d","b","e","b","b","b"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["d","a","d","b","d","a","a","b","e","d","e","c","e","a","d","b","e","b","b","b"],"fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPopups","args":[-21.6806418634951,142.453535478562,"Random popup",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"className":""}]}],"limits":{"lat":[-45.7770845387131,57.0196917839348],"lng":[-164.157858761027,173.153216578066]}},"evals":[],"jsHooks":[]}</script>
-<p class="caption">
-Map of completely random data
-</p>
+<div id="part1-visualization-of-landingmining-sites-on-map" class="section level2">
+<h2>PART1: Visualization of landing/mining sites on map</h2>
+<p>I loaded required packages</p>
+<pre class="r"><code>library(threejs)</code></pre>
+<p>##Results2 I prepared and loaded the data.</p>
+<p>#I decided not to load this data because my codes are not working yet #```{r}</p>
+<p>#the_martian &lt;- read.csv(“the_martian.csv”, comment.char=“#”)</p>
+<p>#globejs(img=“Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg”, bodycolor=“#555555”, emissive=“#444444”, # lightcolor=“#555555”, # lat=the_martian<span class="math inline">$x, # long=the_martian$</span>y) #```</p>
 </div>
-<pre class="r"><code>data %&gt;% 
-  ggplot(aes(x=x,y=y,col=category))+
-  geom_point()</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="conclusions" class="section level1">
 <h1>Conclusions</h1>
-<p>[~200 words]</p>
-<p>Clear summary adequately describing the results and putting them in context. Discussion of further questions and ways to continue investigation.</p>
+<p>Using R , we are able to resize the images, correct the images, and process the images to detect the best future landing and mining sites. This project can be extended to other area and could help scientists and researcher in selecting not only landing and mining sites but also detecting and forcasting temperature in space, maping minerals in space, detecting geological features in space. [~200 words]</p>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
-<p>All sources are cited (in a consistent manner)</p>
+<p>All sources are cited (to be updated later)</p>
 </div>
 
 <!-- give the footer some space -->
