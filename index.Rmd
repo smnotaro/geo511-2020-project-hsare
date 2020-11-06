@@ -174,4 +174,4 @@ Using R , we are able to resize the images, correct the images, and process the 
 
 # References
 
-All sources are cited (in a consistent manner)
+All sources are cited (to be updated later)
