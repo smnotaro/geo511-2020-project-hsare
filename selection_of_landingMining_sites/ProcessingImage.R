@@ -1,5 +1,4 @@
-#Detecting water on the Moon to select best landing sites
-#Classifying the abundance of water on Satellite Imagery in R
+
 #Loading packages and preparing the data
 library(raster)
 library(tidyverse)
@@ -14,7 +13,7 @@ library(forcats)
 library(sp)
 library(raster)
 #Next, we read in the different bands that comprise the satellite imagery. Each band refers to a different spectrum:
-#MAYBE NEED TO UPLOAD IMAGES IN THE DIRECTRY FIRST
+
 band1 <- raster("B02.tif")
 band2 <- raster("B03.tif")
 band3 <- raster("B04.tif")
@@ -22,10 +21,7 @@ band4 <- raster("B05.tif")
 band5 <- raster("B06.tif")
 band6 <- raster("B07.tif")
 band7 <- raster("B08.tif")
-#band8 <- ("mariner-9-mars-lander.jpg")
-#band9 <- raster("./data/band9.tif")
-#band10 <- raster("./data/band10.tif")
-#band11 <- raster("./data/band11.tif")
+
 print(band1)
 
 #Check size of image before combining them using STACK
