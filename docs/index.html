@@ -398,60 +398,108 @@ library(forcats)
 library(sp)
 library(raster)</code></pre>
 <p>I prepare the data by reading in the different bands that comprise the satelitte imagery. Each band refers to different spectrum.</p>
-<pre class="r"><code>band1 &lt;- (&quot;B02.tif&quot;)
-band2 &lt;- (&quot;B03.tif&quot;)
-band3 &lt;- (&quot;B04.tif&quot;)
-band4 &lt;- (&quot;B05.tif&quot;)
-band5 &lt;- (&quot;B06.tif&quot;)
-band6 &lt;- (&quot;B07.tif&quot;)
-band7 &lt;- (&quot;B08.tif&quot;)</code></pre>
+<pre class="r"><code>Band1 &lt;- (&quot;B02.tif&quot;)
+Band2 &lt;- (&quot;B03.tif&quot;)
+Band3 &lt;- (&quot;B04.tif&quot;)
+Band4 &lt;- (&quot;B05.tif&quot;)
+Band5 &lt;- (&quot;B06.tif&quot;)
+Band6 &lt;- (&quot;B07.tif&quot;)
+Band7 &lt;- (&quot;B08.tif&quot;)
+
+band1 &lt;- (&quot;b01.tiff&quot;)
+band2 &lt;- (&quot;b02.tiff&quot;)
+band3 &lt;- (&quot;b03.tiff&quot;)
+band4 &lt;- (&quot;b04.tiff&quot;)
+band5 &lt;- (&quot;b05.tiff&quot;)
+band6 &lt;- (&quot;b06.tiff&quot;)
+band7 &lt;- (&quot;b07.tiff&quot;)
+band8 &lt;- (&quot;b08.tiff&quot;)
+band9 &lt;- (&quot;b09.tiff&quot;)</code></pre>
 <pre class="r"><code>library(raster)
-band1 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B02.tif&quot;)
+#This first part of the plot is an example on how it works with Landsat data for Earth
+Band1 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B02.tif&quot;)
 #(band1 &lt;- raster(&quot;B02.tif&quot;))
-band2 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B03.tif&quot;)
-band3 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B04.tif&quot;)
-band4 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B05.tif&quot;)
-band5 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B06.tif&quot;)
-band6 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B07.tif&quot;)
-band7 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B08.tif&quot;)</code></pre>
+Band2 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B03.tif&quot;)
+Band3 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B04.tif&quot;)
+Band4 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B05.tif&quot;)
+Band5 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B06.tif&quot;)
+Band6 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B07.tif&quot;)
+Band7 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B08.tif&quot;)
+
+
+#This first part  is showing how it works with Mars data
+band1 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b01.tiff&quot;)
+band2 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b02.tiff&quot;)
+band3 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b03.tiff&quot;)
+band4 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b04.tiff&quot;)
+band5 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b05.tiff&quot;)
+band6 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b06.tiff&quot;)
+band7 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b07.tiff&quot;)
+band8 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b08.tiff&quot;)
+band9 &lt;- raster(&quot;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b09.tiff&quot;)</code></pre>
 <p>Show result of band1</p>
 <pre class="r"><code>print(band1)</code></pre>
 <pre><code>## class      : RasterLayer 
-## dimensions : 907, 797, 722879  (nrow, ncol, ncell)
-## resolution : 10, 10  (x, y)
-## extent     : 643430, 651400, 5079050, 5088120  (xmin, xmax, ymin, ymax)
-## crs        : +proj=utm +zone=34 +datum=WGS84 +units=m +no_defs 
-## source     : C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B02.tif 
-## names      : B02 
-## values     : 1, 8912  (min, max)</code></pre>
+## band       : 1  (of  3  bands)
+## dimensions : 3600, 320, 1152000  (nrow, ncol, ncell)
+## resolution : 1, 1  (x, y)
+## extent     : 0, 320, 0, 3600  (xmin, xmax, ymin, ymax)
+## crs        : NA 
+## source     : C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b01.tiff 
+## names      : b01 
+## values     : 0, 255  (min, max)</code></pre>
 <p>Now, I check the size of image before combining them together using STACK to make sure the sizes match. The code below shows that band1, band2, band3, and band7 are 10x10. Band4, band5, and band6 are 20x20.</p>
-<pre class="r"><code>res(band1) # Size find is 10x10</code></pre>
+<pre class="r"><code>#Here is an example for Landsat data of different size
+res(Band1) # Size find is 10x10</code></pre>
 <pre><code>## [1] 10 10</code></pre>
+<pre class="r"><code>res(Band2) # Size find is 10x10</code></pre>
+<pre><code>## [1] 10 10</code></pre>
+<pre class="r"><code>res(Band3) # Size find is 10x10</code></pre>
+<pre><code>## [1] 10 10</code></pre>
+<pre class="r"><code>res(Band4) # Size find is 20x20</code></pre>
+<pre><code>## [1] 20 20</code></pre>
+<pre class="r"><code>res(Band5) # Size find is 20x20</code></pre>
+<pre><code>## [1] 20 20</code></pre>
+<pre class="r"><code>res(Band6) # Size find is 20x20</code></pre>
+<pre><code>## [1] 20 20</code></pre>
+<pre class="r"><code>res(Band7) # Size find is 10x10</code></pre>
+<pre><code>## [1] 10 10</code></pre>
+<pre class="r"><code>#Here is the code use to find size of Martian data
+res(band1) # Size find is 10x10</code></pre>
+<pre><code>## [1] 1 1</code></pre>
 <pre class="r"><code>res(band2) # Size find is 10x10</code></pre>
-<pre><code>## [1] 10 10</code></pre>
+<pre><code>## [1] 1 1</code></pre>
 <pre class="r"><code>res(band3) # Size find is 10x10</code></pre>
-<pre><code>## [1] 10 10</code></pre>
+<pre><code>## [1] 1 1</code></pre>
 <pre class="r"><code>res(band4) # Size find is 20x20</code></pre>
-<pre><code>## [1] 20 20</code></pre>
+<pre><code>## [1] 1 1</code></pre>
 <pre class="r"><code>res(band5) # Size find is 20x20</code></pre>
-<pre><code>## [1] 20 20</code></pre>
+<pre><code>## [1] 1 1</code></pre>
 <pre class="r"><code>res(band6) # Size find is 20x20</code></pre>
-<pre><code>## [1] 20 20</code></pre>
+<pre><code>## [1] 1 1</code></pre>
 <pre class="r"><code>res(band7) # Size find is 10x10</code></pre>
-<pre><code>## [1] 10 10</code></pre>
-<p>I resize now some image to make sure all image have the same size before adding them together. From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20.</p>
-<pre class="r"><code>band1 &lt;- aggregate(band1, fact = 2) # multiply the size of band1 by 2 to have 20x20
+<pre><code>## [1] 1 1</code></pre>
+<pre class="r"><code>res(band8) # Size find is 10x10</code></pre>
+<pre><code>## [1] 1 1</code></pre>
+<pre class="r"><code>res(band9) # Size find is 10x10</code></pre>
+<pre><code>## [1] 1 1</code></pre>
+<p>I resize now some image to make sure all image have the same size before adding them together. From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20 for Earth data. However, for Martian data, we have the same size so we will just add them all together later without resizing any image.</p>
+<pre class="r"><code>#This is for Earth (Landsat) data to show how it works
+band1 &lt;- aggregate(band1, fact = 2) # multiply the size of band1 by 2 to have 20x20
 band2 &lt;- aggregate(band1, fact = 2) # multiply the size of band2 by 2 to have 20x20
 band3 &lt;- aggregate(band1, fact = 2) # multiply the size of band3 by 2 to have 20x20
 band7 &lt;- aggregate(band1, fact = 2) # multiply the size of band7 by 2 to have 20x20</code></pre>
 <p>Now I can add all bands together to have a metadata containing all informations I am looking for and which will be helpful to continue the project.</p>
-<p>I decided to add only band2, band3 and band7 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.</p>
-<pre class="r"><code>image &lt;- stack(band2, band3, band7)
-#image1 &lt;- stack(band4, band5, band6)</code></pre>
+<p>For Earth data, I decided to add only band2, band3 and band7 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.</p>
+<p>However, only the Martian data is important here because we are working on Mars. So for Martian data, we have the same size so we will just add them all together.But I add only band4, band5, band6, band8 and band9 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.</p>
+<pre class="r"><code>image1 &lt;- stack(Band2, Band3, Band7) #Here is how it works for Landsat data on Earth
+#image1 &lt;- stack(band4, band5, band6)
+image2 &lt;- stack(band4, band5, band6, band8, band9) #Here is for Mars images</code></pre>
 <p>Let’s explore the images. Here, we are able to see the number of band used, the coordinate system the imagery is projected in, the resolution (or grid cell size) of the raster, and the resolution of the images</p>
-<pre class="r"><code>nlayers(image) #This give the number of bands use</code></pre>
+<pre class="r"><code>#For Earth as example
+nlayers(image1) #This give the number of bands use</code></pre>
 <pre><code>## [1] 3</code></pre>
-<pre class="r"><code>crs(image) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.</code></pre>
+<pre class="r"><code>crs(image1) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.</code></pre>
 <pre><code>## CRS arguments:
 ##  +proj=utm +zone=34 +datum=WGS84 +units=m +no_defs</code></pre>
 <pre class="r"><code>res #resolution of the images</code></pre>
@@ -459,33 +507,61 @@ band7 &lt;- aggregate(band1, fact = 2) # multiply the size of band7 by 2 to have
 ## 
 ## function (x) 
 ## standardGeneric(&quot;res&quot;)
-## &lt;bytecode: 0x000000001b46c310&gt;
-## &lt;environment: 0x000000001b467228&gt;
+## &lt;bytecode: 0x00000000175538f8&gt;
+## &lt;environment: 0x000000001754a9e0&gt;
+## Methods may be defined for arguments: x
+## Use  showMethods(&quot;res&quot;)  for currently available ones.</code></pre>
+<pre class="r"><code>#For Mars
+nlayers(image2) #This give the number of bands use</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>crs(image2) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.</code></pre>
+<pre><code>## CRS arguments: NA</code></pre>
+<pre class="r"><code>res #resolution of the images</code></pre>
+<pre><code>## standardGeneric for &quot;res&quot; defined from package &quot;raster&quot;
+## 
+## function (x) 
+## standardGeneric(&quot;res&quot;)
+## &lt;bytecode: 0x00000000175538f8&gt;
+## &lt;environment: 0x000000001754a9e0&gt;
 ## Methods may be defined for arguments: x
 ## Use  showMethods(&quot;res&quot;)  for currently available ones.</code></pre>
 <p>##Results1 Now that we know a little more about the imagery we are using, let plot it. Since image is a multi-band raster, we use the plotRGB function from the raster package, which allows us to specify what bands should be visualized.</p>
 <p>###TRUE COLOR PLOTS. It uses the red band (4) for red, the green band (3) for green, and the blue band (2) for blue.</p>
 <p>t</p>
-<pre class="r"><code>par(col.axis=&quot;white&quot;,col.lab=&quot;white&quot;,tck=0)
-plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE, 
+<pre class="r"><code>#For Earth as example
+par(col.axis=&quot;white&quot;,col.lab=&quot;white&quot;,tck=0)
+plotRGB(image1, r = 4, g = 3, b = 2, axes = TRUE, 
         stretch = &quot;lin&quot;, main = &quot;True Color Composite&quot;)</code></pre>
 <pre><code>## Warning in .local(x, ...): layer was changed to 3</code></pre>
 <pre class="r"><code>box(col=&quot;white&quot;)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="672" /> ###FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.</p>
-<pre class="r"><code>par(col.axis=&quot;white&quot;,col.lab=&quot;white&quot;,tck=0)
-plotRGB(image, r = 5, g = 4, b = 3, axes = TRUE, stretch = &quot;lin&quot;, main = &quot;False Color Composite&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>#For Mars because that is what interest us.
+par(col.axis=&quot;white&quot;,col.lab=&quot;white&quot;,tck=0)
+plotRGB(image2, r = 4, g = 3, b = 2, axes = TRUE, 
+        stretch = &quot;lin&quot;, main = &quot;True Color Composite&quot;)
+box(col=&quot;white&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-9-2.png" width="672" /> ###FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.</p>
+<pre class="r"><code>#For Earth as example
+par(col.axis=&quot;white&quot;,col.lab=&quot;white&quot;,tck=0)
+plotRGB(image1, r = 5, g = 4, b = 3, axes = TRUE, stretch = &quot;lin&quot;, main = &quot;False Color Composite&quot;)</code></pre>
 <pre><code>## Warning in .local(x, ...): layer was changed to 3
 
 ## Warning in .local(x, ...): layer was changed to 3</code></pre>
 <pre class="r"><code>box(col=&quot;white&quot;)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="672" /> ###Indices of WATER</p>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>#For Mars 
+par(col.axis=&quot;white&quot;,col.lab=&quot;white&quot;,tck=0)
+plotRGB(image2, r = 5, g = 4, b = 3, axes = TRUE, stretch = &quot;lin&quot;, main = &quot;False Color Composite&quot;)
+box(col=&quot;white&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-10-2.png" width="672" /> ###Indices of WATER</p>
 <p>We can use Modified Normalized Difference Water Index [MNDWI=(Green-MIR)/ (Green+MIR)] to separate water from land. This idea is from Reference=<a href="https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2" class="uri">https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2</a> The Author of the reference is Saygin Abdikan and is currently working at the Department of Geomatics Engineering, Hacettepe University. The Author researchGate is <a href="https://www.researchgate.net/profile/Saygin_Abdikan" class="uri">https://www.researchgate.net/profile/Saygin_Abdikan</a></p>
 <p>The formula is as below: [MNDWI=(Green-MIR)/ (Green+MIR)] MNDWI &lt;- (image[[2]] - image[[3]])/(image[[2]] + image[[3]]).</p>
 <p>To plot the results with ggplot, we convert the raster into a data frame and use geom_tile. The plot generated by the codes below show where are located water/ water ice/ volatiles materials the most and we have then know where to land the rovers and start the mining process.</p>
-<p>Band4, band5, and band6 are use here. Band4 represent the Green band in our case and band6 represent the MIR band</p>
-<pre class="r"><code>#MNDWI &lt;- (image[[2]] - image[[3]])/(image[[2]] + image[[3]])
-#MNDWI &lt;- ((band2 + band3) - band7)/((band2 + band3) + band7)
-MNDWI &lt;- (band4 - band6)/(band4 + band6)
+<p>Band4, Band5, and Band6 are use for Earth where Band4 represent the Green band in our case and Band6 represent the MIR band.</p>
+<p>For Mars,the formula change little bit because all bands are collected and stored in the same file in Mars Odysee website. False color or black and white could reveal the distribution of water. However, we use the formula:</p>
+<p>MNDWI &lt;- (band4)/(1/band9). This formula is derived after multiple observations</p>
+<pre class="r"><code>#For Earth data as example
+MNDWI &lt;- (Band4 - Band6)/(Band4 + Band6)
 
 
 as(MNDWI, &quot;SpatialPixelsDataFrame&quot;) %&gt;% 
@@ -503,15 +579,46 @@ as(MNDWI, &quot;SpatialPixelsDataFrame&quot;) %&gt;%
                       low = &quot;#087F28&quot;,
                       name = &quot;Water or Water ice or Volatiles materials&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>#For Mars. 
+#We derived This formula is derived after multiple observations and applied to different data before using it.
+MNDWI &lt;- (band4)/(1/band9)
+#MNDWI &lt;- (band4-band9)/(band4+band9)
+
+
+as(MNDWI, &quot;SpatialPixelsDataFrame&quot;) %&gt;% 
+  as.data.frame() %&gt;%
+  ggplot(data = .) +
+  geom_tile(aes(x = x, y = y, fill = layer)) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(title = &quot;Water or Water ice or Volatiles materials&quot;, 
+       x = &quot; &quot;, 
+       y = &quot; &quot;) +
+  scale_fill_gradient(high = &quot;#CEE50E&quot;, 
+                      low = &quot;#087F28&quot;,
+                      name = &quot;Water or Water ice or Volatiles materials&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
 </div>
 <div id="part1-visualization-of-landingmining-sites-on-map" class="section level2">
 <h2>PART1: Visualization of landing/mining sites on map</h2>
 <p>I loaded required packages</p>
 <pre class="r"><code>library(threejs)</code></pre>
 <p>##Results2 I prepared and loaded the data.</p>
-<p>#I decided not to load this data because my codes are not working yet #```{r}</p>
-<p>#the_martian &lt;- read.csv(“the_martian.csv”, comment.char=“#”)</p>
-<p>#globejs(img=“Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg”, bodycolor=“#555555”, emissive=“#444444”, # lightcolor=“#555555”, # lat=the_martian<span class="math inline">$x, # long=the_martian$</span>y) #```</p>
+<p>#I decided not to load this data because my codes are not working yet (I should read the_martian.cvs)</p>
+<pre class="r"><code>the_martian &lt;- (&#39;C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/the_martian.cvs&#39;)
+
+
+#the_martian &lt;- read.csv(&quot;C:/Users/Owner/Desktop/sare  backup/c/user #hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landi#ngMining_sites/the_martian.cvs&quot;, comment.char=&quot;#&quot;)
+
+
+
+
+#globejs(img=&quot;Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg&quot;, bodycolor=&quot;#555555&quot;, emissive=&quot;#444444&quot;, 
+#        lightcolor=&quot;#555555&quot;, 
+#        lat=the_martian$x, 
+#        long=the_martian$y)</code></pre>
 </div>
 </div>
 <div id="conclusions" class="section level1">

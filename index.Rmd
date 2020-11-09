@@ -44,27 +44,50 @@ I prepare the data by reading in the different bands that comprise the satelitte
 
 
 ```{r, message=F, warning=F}
-band1 <- ("B02.tif")
-band2 <- ("B03.tif")
-band3 <- ("B04.tif")
-band4 <- ("B05.tif")
-band5 <- ("B06.tif")
-band6 <- ("B07.tif")
-band7 <- ("B08.tif")
+Band1 <- ("B02.tif")
+Band2 <- ("B03.tif")
+Band3 <- ("B04.tif")
+Band4 <- ("B05.tif")
+Band5 <- ("B06.tif")
+Band6 <- ("B07.tif")
+Band7 <- ("B08.tif")
+
+band1 <- ("b01.tiff")
+band2 <- ("b02.tiff")
+band3 <- ("b03.tiff")
+band4 <- ("b04.tiff")
+band5 <- ("b05.tiff")
+band6 <- ("b06.tiff")
+band7 <- ("b07.tiff")
+band8 <- ("b08.tiff")
+band9 <- ("b09.tiff")
 ```
 
 
 
 ```{r, message=F, warning=F}
 library(raster)
-band1 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B02.tif")
+#This first part of the plot is an example on how it works with Landsat data for Earth
+Band1 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B02.tif")
 #(band1 <- raster("B02.tif"))
-band2 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B03.tif")
-band3 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B04.tif")
-band4 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B05.tif")
-band5 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B06.tif")
-band6 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B07.tif")
-band7 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B08.tif")
+Band2 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B03.tif")
+Band3 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B04.tif")
+Band4 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B05.tif")
+Band5 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B06.tif")
+Band6 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B07.tif")
+Band7 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B08.tif")
+
+
+#This first part  is showing how it works with Mars data
+band1 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b01.tiff")
+band2 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b02.tiff")
+band3 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b03.tiff")
+band4 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b04.tiff")
+band5 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b05.tiff")
+band6 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b06.tiff")
+band7 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b07.tiff")
+band8 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b08.tiff")
+band9 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/b09.tiff")
 ```
 
 Show result of band1
@@ -77,6 +100,16 @@ Now, I check the size of image before combining them together using STACK to mak
 
 
 ```{r}
+#Here is an example for Landsat data of different size
+res(Band1) # Size find is 10x10
+res(Band2) # Size find is 10x10
+res(Band3) # Size find is 10x10
+res(Band4) # Size find is 20x20
+res(Band5) # Size find is 20x20
+res(Band6) # Size find is 20x20
+res(Band7) # Size find is 10x10
+
+#Here is the code use to find size of Martian data
 res(band1) # Size find is 10x10
 res(band2) # Size find is 10x10
 res(band3) # Size find is 10x10
@@ -84,13 +117,16 @@ res(band4) # Size find is 20x20
 res(band5) # Size find is 20x20
 res(band6) # Size find is 20x20
 res(band7) # Size find is 10x10
+res(band8) # Size find is 10x10
+res(band9) # Size find is 10x10
 ```
 
 I resize now some image to make sure all image have the same size before adding them together.
-From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20.
+From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20 for Earth data. However, for Martian data, we have the same size so we will just add them all together later without resizing any image.
 
 
 ```{r}
+#This is for Earth (Landsat) data to show how it works
 band1 <- aggregate(band1, fact = 2) # multiply the size of band1 by 2 to have 20x20
 band2 <- aggregate(band1, fact = 2) # multiply the size of band2 by 2 to have 20x20
 band3 <- aggregate(band1, fact = 2) # multiply the size of band3 by 2 to have 20x20
@@ -99,10 +135,13 @@ band7 <- aggregate(band1, fact = 2) # multiply the size of band7 by 2 to have 20
 
 Now I can add all bands together to have a metadata containing all informations I am looking for and which will be helpful to continue the project.
 
-I decided to add only band2, band3 and band7 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.
+For Earth data, I decided to add only band2, band3 and band7 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.
+
+However, only the Martian data is important here because we are working on Mars. So  for Martian data, we have the same size so we will just add them all together.But I add only band4, band5, band6, band8 and band9 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.
 ```{r}
-image <- stack(band2, band3, band7)
+image1 <- stack(Band2, Band3, Band7) #Here is how it works for Landsat data on Earth
 #image1 <- stack(band4, band5, band6)
+image2 <- stack(band4, band5, band6, band8, band9) #Here is for Mars images
 
 ```
 
@@ -110,8 +149,14 @@ Let's explore the images. Here, we are able to see the number of band used, the 
 
 
 ```{r}
-nlayers(image) #This give the number of bands use
-crs(image) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.
+#For Earth as example
+nlayers(image1) #This give the number of bands use
+crs(image1) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.
+res #resolution of the images
+
+#For Mars
+nlayers(image2) #This give the number of bands use
+crs(image2) #the coordinate system the imagery is projected in, and the resolution (or grid cell size) of the raster.
 res #resolution of the images
 ```
 
@@ -123,8 +168,16 @@ we use the plotRGB function from the raster package, which allows us to specify 
 
 t
 ```{r}
+#For Earth as example
 par(col.axis="white",col.lab="white",tck=0)
-plotRGB(image, r = 4, g = 3, b = 2, axes = TRUE, 
+plotRGB(image1, r = 4, g = 3, b = 2, axes = TRUE, 
+        stretch = "lin", main = "True Color Composite")
+box(col="white")
+
+
+#For Mars because that is what interest us.
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image2, r = 4, g = 3, b = 2, axes = TRUE, 
         stretch = "lin", main = "True Color Composite")
 box(col="white")
 ```
@@ -132,8 +185,15 @@ box(col="white")
 
 
 ```{r}
+#For Earth as example
 par(col.axis="white",col.lab="white",tck=0)
-plotRGB(image, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
+plotRGB(image1, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
+box(col="white")
+
+
+#For Mars 
+par(col.axis="white",col.lab="white",tck=0)
+plotRGB(image2, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
 box(col="white")
 ```
 ###Indices of WATER
@@ -148,13 +208,37 @@ MNDWI <- (image[[2]] - image[[3]])/(image[[2]] + image[[3]]).
 To plot the results with ggplot, we convert the raster into a data frame and use geom_tile.
 The plot generated by the codes below show where are located water/ water ice/ volatiles materials the most and we have then know where to land the rovers and start the mining process.
 
-Band4, band5, and band6 are use here. Band4 represent the Green band in our case and band6 represent the MIR band
+Band4, Band5, and Band6 are use for Earth where Band4 represent the Green band in our case and Band6 represent the MIR band.
 
+For Mars,the formula change little bit because all bands are collected and stored in the same file in Mars Odysee website. False color or black and white could reveal the distribution of water. However, we use the formula:
+
+MNDWI <- (band4)/(1/band9).
+This formula is derived after multiple observations
 
 ```{r}
-#MNDWI <- (image[[2]] - image[[3]])/(image[[2]] + image[[3]])
-#MNDWI <- ((band2 + band3) - band7)/((band2 + band3) + band7)
-MNDWI <- (band4 - band6)/(band4 + band6)
+#For Earth data as example
+MNDWI <- (Band4 - Band6)/(Band4 + Band6)
+
+
+as(MNDWI, "SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>%
+  ggplot(data = .) +
+  geom_tile(aes(x = x, y = y, fill = layer)) +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.background = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(title = "Water or Water ice or Volatiles materials", 
+       x = " ", 
+       y = " ") +
+  scale_fill_gradient(high = "#CEE50E", 
+                      low = "#087F28",
+                      name = "Water or Water ice or Volatiles materials")
+
+#For Mars. 
+#We derived This formula is derived after multiple observations and applied to different data before using it.
+MNDWI <- (band4)/(1/band9)
+#MNDWI <- (band4-band9)/(band4+band9)
 
 
 as(MNDWI, "SpatialPixelsDataFrame") %>% 
@@ -185,18 +269,21 @@ library(threejs)
 I prepared and loaded the data.
 
 
-#I decided not to load this data because my codes are not working yet
-#```{r}
+#I decided not to load this data because my codes are not working yet (I should read the_martian.cvs)
+```{r}
+the_martian <- ('C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/the_martian.cvs')
 
 
-#the_martian <- read.csv("the_martian.csv", comment.char="#")
+#the_martian <- read.csv("C:/Users/Owner/Desktop/sare  backup/c/user #hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landi#ngMining_sites/the_martian.cvs", comment.char="#")
+
+
 
 
 #globejs(img="Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444", 
 #        lightcolor="#555555", 
 #        lat=the_martian$x, 
 #        long=the_martian$y)
-#```
+```
 
 
 
