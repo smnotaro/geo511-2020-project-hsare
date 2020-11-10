@@ -257,7 +257,7 @@ as(MNDWI, "SpatialPixelsDataFrame") %>%
                       name = "Water or Water ice or Volatiles materials")
 ```
 
-## PART1: Visualization of landing/mining sites on map
+## PART2: Visualization of landing/mining sites on map
 
 I loaded required packages
 
