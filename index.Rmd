@@ -266,21 +266,24 @@ library(threejs)
 ```
 
 ##Results2
-I prepared and loaded the data.
-With the package called "streejs" I am should be able to plot the exact location of landing and mining sites on the Martian global map. I created a cvs file where I stored the latitudes and logitude of the future landing and mining sites selested and call that file in R.
+I firstly prepared and loaded the data and then with the package called "streejs" I plot the exact locations of landing and mining sites on the Martian global map. I created a cvs file where I stored the latitudes and logitude of the future landing and mining sites selested and call that file in R.
 
 
 ```{r}
 library(threejs)
 library(csvread)
-the_martian.csv <- ("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/the_martian.cvs")
+the_martian <- read.csv("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/the_martian.csv", comment.char="#")
+                        
+#the_martian.csv <- ("C:/Users/Owner/Desktop/sare  backup/c/user #hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landi#ngMining_sites/the_martian.cvs")
   
 
 globejs(img = "C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/Mars_Viking_MDIM21_ClrMosaic_global_1024.jpg", bodycolor="#555555", emissive="#444444",
         lightcolor="#555555",
-        lat="C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/the_martian.csv/the_martian$x", #The latitude is still not showing up and I need to work on it little bit.
+        lat = the_martian$x,
+        long = the_martian$y)
+#        lat="C:/Users/Owner/Desktop/sare  backup/c/user #hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landi#ngMining_sites/the_martian.csv/the_martian$x", #The latitude when I use this code is not showing up and I need to work on it little #bit.
 
-        long = "C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landingMining_sites/the_martian.csv/the_martian$y") #The longitude is also still not showing up and I need to work on it little bit.
+ #       long = "C:/Users/Owner/Desktop/sare  backup/c/user #hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/visualize_of_landi#ngMining_sites/the_martian.csv/the_martian$y") #The longitude when I use this code is also still not showing up and I need to work on it #little bit.
       
 ```
 
