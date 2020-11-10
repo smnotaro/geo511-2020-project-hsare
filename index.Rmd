@@ -15,8 +15,8 @@ For this project, the most important criteria I  considered is the geological cr
 
 # Materials and methods
 
-I choosed 9 sites as training sites.
-For each training site, I downloaded and used Raster data of  Mars. Those data are Visible and infrared data in the “.TIFF” format and are combination of different band (7 bands according to Mars Odysee website) and each band is showing data in a specific wavelength. After downloading those data, I  resized some of them so that all images will have the same size and I  then added them together to create a metadata containing all information from each site. I finally used the band ratio combination to determine the presence and abundance of water/water ice, ice or volatiles material in each site I choose as training site and from there I was able to see which sites could be selected as the best future landing/mining sites.
+I choosed 9 sites as training sites (Si polar swath"I00831006"; Lyot crater"V00823007"; Cerberus fossae"V00825005";Echus chasma"I00839002"; Sinus Meridiana west"I00849005"; Syrtis Major"I00853002"; Ophir planum"I00864002"; Marte vallis"I00868006; Eastern Meridiani"I00836002").
+For each training site, I downloaded and used Raster data. Those data are Visible and infrared data in the “.TIFF” format and are combination of different band (9 0R 10 bands according to Mars Odysee website) and each band is showing data in a specific wavelength. I also downloaded Earth data from Landsat to show how I am applying what is done on Earth to Mars.After downloading Earth data, I  resized some of them so that all images will have the same size and I  then added them together to create a metadata containing all information from each site. For Mars, I don't need to resize any of the images because they all have the same size.I finally used the band ratio combination to determine the presence, abundance and distribution of water, water ice, ice or volatiles materials in each site I choose as training site and from there I was able to see which sites could be selected as the best future landing/mining sites.
 
 # Data and Results
 ## PART1: Selection of thhe landing/mining sites
@@ -289,8 +289,7 @@ the_martian <- ('C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511
 
 # Conclusions
 
-Using R , we are able to resize the images, correct the images, and process the images to detect the best future landing and mining sites. This project can be extended to other area and could help scientists and researcher in selecting not only landing and mining sites but also detecting and forcasting temperature in space, maping minerals in space, detecting geological features in space.
-[~200 words]
+From all sites I selected as training sites I choosed 9 sites as training sites (Si polar swath"I00831006"; Lyot crater"V00823007"; Cerberus fossae"V00825005";Echus chasma"I00839002"; Sinus Meridiana west"I00849005"; Syrtis Major"I00853002"; Ophir planum"I00864002"; Marte vallis"I00868006; Eastern Meridiani"I00836002"), Meridiana west seems to be the best one. The band ratio combination is used to determine the presence, abundance and distribution of water, water ice, ice or volatiles materials in each site before selecting some specific spots within Meridiana west as future landing/mining site.This is done using R language meaning that R is a suitable tool offering the user the choice to manipulate the data in the way he or she wants as well as to perfom diverses task on Earth and in space. R is definitely a great too that can help explorers, planetary scientists to overcome some difficulties they could not handle with other softwares.
 
 
 # References
