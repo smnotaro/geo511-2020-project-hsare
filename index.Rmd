@@ -7,21 +7,21 @@ author: Hadarou Sare
 
 # Introduction
 
-For more than decades,NASA and its partners has been developing technologies to extract precious metals and water from the Moon, Mars and other bodies in the solar system. The extraction of water is very important because it can reduce considerably the cost of launch since the water can be split into Hydrogen and Oxygen and use as propellant in space. That idea has been clearly supported recently by the US goverment and European partners with the Artemis and other projects. However, even though scientists and engineers have already developed the right technologies able to extract water and other resources from space, it is still unclear where they should land their technologies(Rover and others) and start mining the resources they are looking for. 
+For more than decades, NASA and its partners have been developing technologies to extract precious metals and water from the Moon, Mars and other bodies in the solar system. The extraction of water is very important because it can reduce considerably the cost of launch since the water can be split into Hydrogen and Oxygen and be used as propellant in space. That idea has been clearly supported recently by the US goverment and European partners with the Artemis and other projects. However, even though scientists and engineers have already developed the right technologies able to extract water and other resources from space, it is still unclear where they should land their technologies, such as Rover, and start mining the resources they are looking for. 
 
 The goal of this project is to use the package "threejs" to visualize the future best mining sites on Mars(water/water ice/volatiles materials mining sites). The final product is a map showing locations of best landing sites and mining sites.
-However, before getting into that step, I used some geological and engineering criteria to determine and selected the best landing/mining sites for the future rovers. The criteria used to select the landing/mining sites are: where are located minerals indicating the presence of water/water ice?, where do we have permanent sunlight to use as source of energy for processing the water and charging the rovers? Is the topography of the site suitable for the mobility of the rover to and from the processing center?... 
-For this project, the most important criteria I  considered is the geological criteria for question of time. I choosed and explored 9 sites as training sites and then selected among those sites the best ones as future landing/mining sites.
+However, before getting into that step, I used some geological and engineering criteria to determine and selected the best landing/mining sites for the future rovers. The criteria used to select the landing/mining sites are: where are the located minerals indicating the presence of water/water ice? Where do we have permanent sunlight to use as source of energy for processing the water and charging the rovers? Is the topography of the site suitable for the mobility of the rover to and from the processing center?... 
+For this project, the most important criteria I  considered is the geological criteria for question of time. I chose and explored 9 sites as training sites and then selected among those sites the best ones as future landing/mining sites.
 
 # Materials and methods
 
-I choosed 9 sites as training sites (Si polar swath"I00831006"; Lyot crater"V00823007"; Cerberus fossae"V00825005";Echus chasma"I00839002"; Sinus Meridiana west"I00849005"; Syrtis Major"I00853002"; Ophir planum"I00864002"; Marte vallis"I00868006; Eastern Meridiani"I00836002").
-For each training site, I downloaded and used Raster data. Those data are Visible and infrared data in the “.TIFF” format and are combination of different band (9 0R 10 bands according to Mars Odysee website) and each band is showing data in a specific wavelength. I also downloaded Earth data from Landsat to show how I am applying what is done on Earth to Mars.After downloading Earth data, I  resized some of them so that all images will have the same size and I  then added them together to create a metadata containing all information from each site. For Mars, I don't need to resize any of the images because they all have the same size.I finally used the band ratio combination to determine the presence, abundance and distribution of water, water ice, ice or volatiles materials in each site I choose as training site and from there I was able to see which sites could be selected as the best future landing/mining sites.
+I chose 9 sites as training sites (Si polar swath"I00831006"; Lyot crater"V00823007"; Cerberus fossae"V00825005";Echus chasma"I00839002"; Sinus Meridiana west"I00849005"; Syrtis Major"I00853002"; Ophir planum"I00864002"; Marte vallis"I00868006; Eastern Meridiani"I00836002").
+For each training site, I downloaded and used Raster data. Those data are Visible and infrared data in the “.TIFF” format and are combination of different band (9 0R 10 bands according to Mars Odysee website) and each band is showing data in a specific wavelength. I also downloaded Earth data from Landsat to show how I am applying what is done on Earth to Mars. After downloading Earth data, I resized some of them so that all images will have the same size and I then added them together to create a metadata containing all information from each site. For Mars, I don't need to resize any of the images because they all have the same size.I finally used the band ratio combination to determine the presence, abundance and distribution of water, water ice, ice or volatiles materials in each site I chose as training site and from there I was able to see which sites could be selected as the best future landing/mining sites. 
 
 # Data and Results
 ## PART1: Selection of thhe landing/mining sites
 
-The goal here is to detect the site where we could have more water/ water ice/ volatiles materials. I applied some corrections to satelitte images I downloaded. For question of time I will only show what I did in only one site here but all sites I selected to be future landing/mining site are shown later in the second part of this project.
+The goal here is to detect the site where we could have more water/water ice/volatiles materials. I applied some corrections  to satelitte images I downloaded. For question of time I will only show what I did in only one site here but all sites I selected to be future landing/mining site are shown later in the second part of this project.
 
 I loaded required packages
 
@@ -40,7 +40,7 @@ library(sp)
 library(raster)
 ```
 
-I prepare the data by reading in the different bands that comprise the satelitte imagery. Each band refers to different spectrum.
+I prepared the data by reading in the different bands that comprise the satelitte imagery. Each band refers to different spectrum.
 
 
 ```{r, message=F, warning=F}
@@ -51,7 +51,7 @@ Band4 <- ("B05.tif")
 Band5 <- ("B06.tif")
 Band6 <- ("B07.tif")
 Band7 <- ("B08.tif")
-
+ 
 band1 <- ("b01.tiff")
 band2 <- ("b02.tiff")
 band3 <- ("b03.tiff")
@@ -65,7 +65,7 @@ band9 <- ("b09.tiff")
 
 
 
-```{r, message=F, warning=F}
+```{r, message=F, warning=F} 
 library(raster)
 #This first part of the plot is an example on how it works with Landsat data for Earth
 Band1 <- raster("C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/Tasks/geo511-tasks-hsare/geo511-2020-final-project/geo511-2020-project-hsare/selection_of_landingMining_sites/B02.tif")
@@ -118,10 +118,10 @@ res(band5) # Size find is 20x20
 res(band6) # Size find is 20x20
 res(band7) # Size find is 10x10
 res(band8) # Size find is 10x10
-res(band9) # Size find is 10x10
+res(band9) # Size find is 10x10 
 ```
 
-I resize now some image to make sure all image have the same size before adding them together.
+I resize now some images to make sure all the images have the same size before adding them together.
 From the results above, I then multiply each image (band1, band2, band3, and band7) by 2 to have 20x20 for Earth data. However, for Martian data, we have the same size so we will just add them all together later without resizing any image.
 
 
@@ -137,15 +137,15 @@ Now I can add all bands together to have a metadata containing all informations 
 
 For Earth data, I decided to add only band2, band3 and band7 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.
 
-However, only the Martian data is important here because we are working on Mars. So  for Martian data, we have the same size so we will just add them all together.But I add only band4, band5, band6, band8 and band9 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.
+However, only the Martian data is important here because we are working on Mars. So, for Martian data, we have the same size so we will just add them all together. But I add only band4, band5, band6, band8 and band9 together because those wavelength are able to reflect the distribution of water on the sites. Also I just used those bands because the code does not work when I add the remaining band to the current I already stack together.
 ```{r}
 image1 <- stack(Band2, Band3, Band7) #Here is how it works for Landsat data on Earth
-#image1 <- stack(band4, band5, band6)
+#image1 <- stack(band4, band5, band6) #Clear specification of what this line is for and why it was commented out
 image2 <- stack(band4, band5, band6, band8, band9) #Here is for Mars images
 
 ```
 
-Let's explore the images. Here, we are able to see the number of band used, the coordinate system the imagery is projected in, the resolution (or grid cell size) of the raster, and the resolution of the images
+Let's explore the images. Here, we are able to see the number of bands used, the coordinate system the imagery is projected in, the resolution (or grid cell size) of the raster, and the resolution of the images.
 
 
 ```{r}
@@ -161,7 +161,7 @@ res #resolution of the images
 ```
 
 ##Results1
-Now that we know a little more about the imagery we are using, let plot it. Since image is a multi-band raster,
+Now that we know a little more about the imagery we are using, let plot it. Since the image is a multi-band raster,
 we use the plotRGB function from the raster package, which allows us to specify what bands should be visualized.
 
 ###TRUE COLOR PLOTS. It uses the red band (4) for red, the green band (3) for green, and the blue band (2) for blue.
@@ -181,6 +181,7 @@ plotRGB(image2, r = 4, g = 3, b = 2, axes = TRUE,
         stretch = "lin", main = "True Color Composite")
 box(col="white")
 ```
+
 ###FALSE COLOR PLOT.The false color composite uses NIR (5) for red, red (4) for green, and green (3) for blue.
 
 
@@ -196,21 +197,22 @@ par(col.axis="white",col.lab="white",tck=0)
 plotRGB(image2, r = 5, g = 4, b = 3, axes = TRUE, stretch = "lin", main = "False Color Composite")
 box(col="white")
 ```
+
 ###Indices of WATER
 
-We can use Modified Normalized Difference Water Index [MNDWI=(Green-MIR)/ (Green+MIR)] to separate water from land. This idea is from Reference=https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2
-The Author of the reference is Saygin Abdikan and is currently working at the Department of Geomatics Engineering, Hacettepe University. The Author researchGate is https://www.researchgate.net/profile/Saygin_Abdikan
+We can use Modified Normalized Difference Water Index [MNDWI=(Green-MIR)/ (Green+MIR)] to separate water from land. This idea is from https://www.researchgate.net/post/What_is_the_best_band_combination_for_highlighting_the_water_and_soil_together_in_LANDSAT_image2.
+The author of this source is Saygin Abdikan, who is currently working at the Department of Geomatics Engineering, Hacettepe University. The author's researchGate is https://www.researchgate.net/profile/Saygin_Abdikan
 
 The formula is as below:
 [MNDWI=(Green-MIR)/ (Green+MIR)]
 MNDWI <- (image[[2]] - image[[3]])/(image[[2]] + image[[3]]).
 
 To plot the results with ggplot, we convert the raster into a data frame and use geom_tile.
-The plot generated by the codes below show where are located water/ water ice/ volatiles materials the most and we have then know where to land the rovers and start the mining process.
+The plot generated by the codes below show where are located water/water ice/volatiles materials the most and we have then know where to land the rovers and start the mining process.
 
-Band4, Band5, and Band6 are use for Earth where Band4 represent the Green band in our case and Band6 represent the MIR band.
+Band4, Band5, and Band6 are used for Earth where Band4 represents the Green band in our case and Band6 represent the MIR band.
 
-For Mars,the formula change little bit because all bands are collected and stored in the same file in Mars Odysee website. False color or black and white could reveal the distribution of water. However, we use the formula:
+For Mars,the formula changes slightly because all the bands are collected and stored in the same file in Mars Odysee website. False color or black and white could reveal the distribution of water. However, we use the formula:
 
 MNDWI <- (band4)/(1/band9).
 This formula is derived after multiple observations
@@ -228,12 +230,12 @@ as(MNDWI, "SpatialPixelsDataFrame") %>%
         axis.ticks = element_blank(),
         panel.background = element_blank(),
         panel.grid.minor = element_blank()) +
-  labs(title = "Water or Water ice or Volatiles materials", 
+  labs(title = "Water or Water Ice or Volatiles Materials", 
        x = " ", 
        y = " ") +
   scale_fill_gradient(high = "#CEE50E", 
-                      low = "#087F28",
-                      name = "Water or Water ice or Volatiles materials")
+                      low = "#087F28", 
+                      name = "Water or Water Ice or Volatiles Materials")
 
 #For Mars. 
 #We derived This formula is derived after multiple observations and applied to different data before using it.
@@ -249,12 +251,12 @@ as(MNDWI, "SpatialPixelsDataFrame") %>%
         axis.ticks = element_blank(),
         panel.background = element_blank(),
         panel.grid.minor = element_blank()) +
-  labs(title = "Water or Water ice or Volatiles materials", 
+  labs(title = "Water or Water Ice or Volatiles Materials", 
        x = " ", 
        y = " ") +
   scale_fill_gradient(high = "#CEE50E", 
-                      low = "#087F28",
-                      name = "Water or Water ice or Volatiles materials")
+                      low = "#087F28", 
+                      name = "Water or Water Ice or Volatiles Materials")
 ```
 
 ## PART2: Visualization of landing/mining sites on map
@@ -266,7 +268,7 @@ library(threejs)
 ```
 
 ##Results2
-I firstly prepared and loaded the data and then with the package called "streejs" I plot the exact locations of landing and mining sites on the Martian global map. I created a cvs file where I stored the latitudes and logitude of the future landing and mining sites selested and call that file in R.
+I first prepared and loaded the data and then with the package called "threejs." I then plotted the exact locations of landing and mining sites on the Martian global map. Also, I created a cvs file where I stored the latitudes and logitude of the future landing and mining sites selested and call that file in RStudio.
 
 
 ```{r}
@@ -291,7 +293,7 @@ globejs(img = "C:/Users/Owner/Desktop/sare  backup/c/user hadar/Desktop/GEO511/T
 
 # Conclusions
 
-From all sites I selected as training sites I choosed 9 sites as training sites (Si polar swath"I00831006"; Lyot crater"V00823007"; Cerberus fossae"V00825005";Echus chasma"I00839002"; Sinus Meridiana west"I00849005"; Syrtis Major"I00853002"; Ophir planum"I00864002"; Marte vallis"I00868006; Eastern Meridiani"I00836002"), Meridiana west seems to be the best one. The band ratio combination is used to determine the presence, abundance and distribution of water, water ice, ice or volatiles materials in each site before selecting some specific spots within Meridiana west as future landing/mining site.This is done using R language meaning that R is a suitable tool offering the user the choice to manipulate the data in the way he or she wants as well as to perfom diverses task on Earth and in space. R is definitely a great too that can help explorers, planetary scientists to overcome some difficulties they could not handle with other softwares.
+From all sites I selected as training sites I chose 9 sites as training sites (Si polar swath"I00831006"; Lyot crater"V00823007"; Cerberus fossae"V00825005";Echus chasma"I00839002"; Sinus Meridiana west"I00849005"; Syrtis Major"I00853002"; Ophir planum"I00864002"; Marte vallis"I00868006; Eastern Meridiani"I00836002"), Meridiana west seems to be the best one. The band ratio combination is used to determine the presence, abundance and distribution of water, water ice, ice or volatiles materials in each site before selecting some specific spots within Meridiana west as future landing/mining site. This was done using R language, therefore, R is a suitable tool that offers the user the choice to manipulate the data in a way he/she/they want as well as to perfom diverses task on Earth and in space. RStudio is definitely a great too that can help explorers and planetary scientists to overcome some difficulties they could not handle with other software.
 
 
 # References
